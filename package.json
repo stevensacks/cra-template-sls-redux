@@ -1,0 +1,27 @@
+{
+  "name": "cra-template-sls-redux",
+  "version": "1.0.0",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "redux",
+    "eslint",
+    "sls"
+  ],
+  "description": "SLS Template for Create React App with Redux",
+  "main": "template.json",
+  "author": "Steven Sacks <stevensacks@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevensacks/cra-template-sls-redux.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
