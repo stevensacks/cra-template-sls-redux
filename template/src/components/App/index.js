@@ -1,8 +1,8 @@
 import {connect, useDispatch} from 'react-redux';
+import React, {useEffect, useState} from 'react';
 import {actionExample} from 'rdx/actions/example';
 import {getPrettyExample} from 'rdx/selectors/example';
 import PropTypes from 'prop-types';
-import React from 'react';
 import './index.scss';
 
 const App = props => {
@@ -22,15 +22,11 @@ const App = props => {
 
     return (
         <div className="app">
-            <header className="app-header">
-                <div>
-                    <span>v0.1.0</span>
-                </div>
-                <div>{example}</div>
-                <button onClick={onClick}>
-                    <span>Click Me</span>
-                </button>
-            </header>
+            <div>
+                <span>v0.1.0</span>
+            </div>
+            <button onClick={onClick}>Click Me</button>
+            <div>{example}</div>
         </div>
     );
 };

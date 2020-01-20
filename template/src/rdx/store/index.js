@@ -18,17 +18,10 @@ export default (forceLogging = null, isNotProduction = IS_NOT_PRODUCTION) => {
         let applied;
         if (forceLogging === false) {
             // you can force disable redux logging for local development
-            applied = applyMiddleware(
-                promiseMiddleware,
-                thunk
-            );
+            applied = applyMiddleware(promiseMiddleware, thunk);
         } else {
             // logging is enabled by default in non-production environments
-            applied = applyMiddleware(
-                createLogger(),
-                promiseMiddleware,
-                thunk
-            );
+            applied = applyMiddleware(createLogger(), promiseMiddleware, thunk);
         }
         middleware = compose(
             applied,
@@ -38,18 +31,11 @@ export default (forceLogging = null, isNotProduction = IS_NOT_PRODUCTION) => {
         );
     } else if (forceLogging === true) {
         // allows logging in production build when necessary
-        middleware = applyMiddleware(
-            createLogger(),
-            promiseMiddleware,
-            thunk
-        );
+        middleware = applyMiddleware(createLogger(), promiseMiddleware, thunk);
     } else {
         // logging is disabled by default in production
-        middleware = applyMiddleware(
-            promiseMiddleware,
-            thunk
-        );
+        middleware = applyMiddleware(promiseMiddleware, thunk);
     }
 
-    return createStore(reducer, InitialState, middleware);
+    return createStore(reducer, InitialState(), middleware);
 };
